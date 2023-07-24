@@ -1,15 +1,14 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#pragma once
 
-#include "snake.h"
+#include "ship.h"
+#include "direction.h"
 
-class Controller {
- public:
-  void HandleInput(bool &running, Snake &snake) const;
+class Controller
+{
+public:
+    void HandleInput(bool &running, Ship &ship) const;
 
- private:
-  void ChangeDirection(Snake &snake, Snake::Direction input,
-                       Snake::Direction opposite) const;
+private:
+    void ChangeDirection(Ship &ship, Direction input,
+                         Direction opposite) const;
 };
-
-#endif

@@ -14,6 +14,8 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS} src)
 
-add_executable(SnakeGame src/main.cpp src/game.cpp src/controller.cpp src/renderer.cpp src/snake.cpp)
+file(COPY src/data DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+
+add_executable(Asteroids src/main.cpp src/direction.cpp src/asteroid.cpp src/point.cpp src/game.cpp src/controller.cpp src/renderer.cpp src/ship.cpp)
 string(STRIP ${SDL2_LIBRARIES} SDL2_LIBRARIES)
-target_link_libraries(SnakeGame ${SDL2_LIBRARIES})
+target_link_libraries(Asteroids ${SDL2_LIBRARIES} pthread)
